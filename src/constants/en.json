@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Homii | Optimize Your Residential Management",
+    "description": "Empower residents and property managers with our comprehensive mobile platform. From amenity reservations to emergency alerts, all in one intuitive app.",
+    "keywords": "residential management, condo app, property management software, amenity reservations, residential app, secure property management, automated rent payments"
+  },
+  "navbar": {
+    "features": "Features",
+    "demo": "Demo",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Optimize Your Residential Management with Mobile-First Solutions",
+    "subtitle": "Empower residents and administrators with our comprehensive mobile platform. From amenity reservations to emergency alerts, everything you need in an intuitive app.",
+    "cta": "View Demo",
+    "socialProof": "4.9/5 from 2,000+ property managers"
+  },
+  "features": {
+    "title": "Everything You Need on One Platform",
+    "subtitle": "Comprehensive property management tools designed for modern living",
+    "items": {
+      "amenities": {
+        "title": "Amenity Reservations",
+        "description": "Book facilities, pools, and common areas with real-time availability"
+      },
+      "marketplace": {
+        "title": "Local Marketplace",
+        "description": "Connect with neighbors and local businesses in your community"
+      },
+      "payments": {
+        "title": "Monthly Payments",
+        "description": "Secure and automated rent and fee payments with tracking"
+      },
+      "emergency": {
+        "title": "Emergency Security",
+        "description": "Panic button and instant contact with management for urgent situations"
+      },
+      "reports": {
+        "title": "Incident Reporting",
+        "description": "Fast reporting system for maintenance and security issues"
+      },
+      "visitors": {
+        "title": "Visitor Management",
+        "description": "Digital visitor registration and access control system"
+      },
+      "events": {
+        "title": "Community Events",
+        "description": "Stay updated on building events and community activities"
+      },
+      "surveys": {
+        "title": "Resident Surveys",
+        "description": "Express your opinions and help improve community life"
+      },
+      "neighborhood": {
+        "title": "Neighborhood Center",
+        "description": "Central communication platform for all community updates"
+      }
+    }
+  },
+  "demo": {
+    "title": "See homii in Action",
+    "subtitle": "Watch how our mobile-first platform transforms property management"
+  },
+  "testimonials": {
+    "title": "Trusted by Property Managers Nationwide",
+    "subtitle": "See what our clients say about their experience",
+    "reviews": [
+      {
+        "quote": "\"homii has completely transformed how we manage our properties. The mobile app makes everything much easier for both our team and the residents.\"",
+        "author": "Sarah Johnson",
+        "role": "Property Manager, Downtown Residences"
+      },
+      {
+        "quote": "\"The emergency and visitor management features have been revolutionary. Our residents feel safer and more connected to their community.\"",
+        "author": "Mike Chen",
+        "role": "Building Manager, Metro Heights"
+      },
+      {
+        "quote": "\"The amenity reservation system alone has saved us countless hours. Residents love the convenience and we love the efficiency.\"",
+        "author": "Lisa Rodriguez",
+        "role": "Community Manager, Sunset Gardens"
+      }
+    ]
+  },
+  "security": {
+    "title": "Enterprise-Grade Security",
+    "badges": [
+      "End-to-End Encryption",
+      "GDPR Compliant",
+      "SOC 2 Certified",
+      "99.9% Uptime SLA"
+    ]
+  },
+  "cta": {
+    "title": "We Offer Solutions for Your Needs",
+    "description": "Ready to transform your property management experience? Get in touch with our team to discuss how homii can adapt to your specific requirements.",
+    "button": "Contact Us",
+    "footer": "Join thousands of satisfied property managers and residents"
+  }
+}

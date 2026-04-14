@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Homii | Optimiza la Gestión de tu Residencial",
+    "description": "Empodera a residentes y administradores con nuestra plataforma móvil integral. Desde reservas de amenidades hasta alertas de emergencia, todo en una app intuitiva.",
+    "keywords": "gestión residencial, app para condominios, administración inmobiliaria, reservas de amenidades, software residencial, seguridad en condominios, pagos de mantenimiento"
+  },
+  "navbar": {
+    "features": "Características",
+    "demo": "Demo",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Optimiza la Gestión de tu Residencial con Soluciones Mobile-First",
+    "subtitle": "Empodera a residentes y administradores con nuestra plataforma móvil integral. Desde reservas de amenidades hasta alertas de emergencia, todo lo que necesitas en una app intuitiva.",
+    "cta": "Ver Demo",
+    "socialProof": "4.9/5 de más de 2,000 administradores de propiedades"
+  },
+  "features": {
+    "title": "Todo lo que Necesitas en Una Plataforma",
+    "subtitle": "Herramientas integrales de gestión inmobiliaria diseñadas para la vida moderna",
+    "items": {
+      "amenities": {
+        "title": "Reservas de Amenidades",
+        "description": "Reserva instalaciones, piscinas y áreas comunes con disponibilidad en tiempo real"
+      },
+      "marketplace": {
+        "title": "Mercado Local",
+        "description": "Conecta con vecinos y negocios locales en tu comunidad"
+      },
+      "payments": {
+        "title": "Pagos Mensuales",
+        "description": "Pagos seguros y automatizados de renta y cuotas con seguimiento"
+      },
+      "emergency": {
+        "title": "Seguridad de Emergencia",
+        "description": "Botón de pánico y contacto instantáneo con administración para situaciones urgentes"
+      },
+      "reports": {
+        "title": "Reporte de Incidentes",
+        "description": "Sistema rápido de reportes para problemas de mantenimiento y seguridad"
+      },
+      "visitors": {
+        "title": "Gestión de Visitantes",
+        "description": "Sistema digital de registro de visitantes y control de acceso"
+      },
+      "events": {
+        "title": "Eventos Comunitarios",
+        "description": "Mantente actualizado sobre eventos del edificio y actividades comunitarias"
+      },
+      "surveys": {
+        "title": "Encuestas a Residentes",
+        "description": "Expresa tus opiniones y ayuda a mejorar la vida comunitaria"
+      },
+      "neighborhood": {
+        "title": "Centro del Vecindario",
+        "description": "Plataforma central de comunicación para todas las actualizaciones comunitarias"
+      }
+    }
+  },
+  "demo": {
+    "title": "Ve homii en Acción",
+    "subtitle": "Mira cómo nuestra plataforma mobile-first transforma la gestión inmobiliaria"
+  },
+  "testimonials": {
+    "title": "Confiado por Administradores Inmobiliarios a Nivel Nacional",
+    "subtitle": "Ve lo que dicen nuestros clientes sobre su experiencia",
+    "reviews": [
+      {
+        "quote": "\"homii ha transformado completamente cómo gestionamos nuestras propiedades. La app móvil hace todo mucho más fácil tanto para nuestro equipo como para los residentes.\"",
+        "author": "Sarah Johnson",
+        "role": "Administradora de Propiedades, Downtown Residences"
+      },
+      {
+        "quote": "\"Las funciones de emergencia y gestión de visitantes han sido revolucionarias. Nuestros residentes se sienten más seguros y conectados con su comunidad.\"",
+        "author": "Mike Chen",
+        "role": "Administrador de Edificio, Metro Heights"
+      },
+      {
+        "quote": "\"Solo el sistema de reserva de amenidades nos ha ahorrado incontables horas. Los residentes aman la conveniencia y nosotros amamos la eficiencia.\"",
+        "author": "Lisa Rodriguez",
+        "role": "Gerente Comunitaria, Sunset Gardens"
+      }
+    ]
+  },
+  "security": {
+    "title": "Seguridad de Nivel Empresarial",
+    "badges": [
+      "Encriptación de Extremo a Extremo",
+      "Cumple con GDPR",
+      "Certificado SOC 2",
+      "SLA de 99.9% de Tiempo Activo"
+    ]
+  },
+  "cta": {
+    "title": "Ofrecemos Soluciones para tus Necesidades",
+    "description": "¿Listo para transformar tu experiencia de gestión inmobiliaria? Ponte en contacto con nuestro equipo para discutir cómo homii puede adaptarse a tus requisitos específicos.",
+    "button": "Contáctanos",
+    "footer": "Únete a miles de administradores inmobiliarios y residentes satisfechos"
+  }
+}
