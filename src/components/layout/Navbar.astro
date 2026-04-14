@@ -20,8 +20,12 @@ const links = [
   { label: t.nav.contact, href: `${prefix}/contact` },
 ];
 
-const esHref = "/";
-const enHref = "/en/";
+const pathname = Astro.url.pathname;
+
+const basePath = pathname.replace(/^\/en(\/|$)/, "/");
+
+const esHref = basePath || "/";
+const enHref = `/en${basePath === "/" ? "/" : basePath}`;
 ---
 
 <header
