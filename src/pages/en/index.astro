@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Features from "@/components/sections/Features.astro";
+import Demo from "@/components/sections/Demo";
+import Security from "@/components/sections/Security.astro";
+import CTA from "@/components/sections/CTA.astro";
+---
+
+<Layout>
+  <Hero currentLocale="en" />
+  <Features currentLocale="en" />
+  <Demo client:only="react" lang="en" />
+  <Security currentLocale="en" />
+  <CTA currentLocale="en" />
+</Layout>

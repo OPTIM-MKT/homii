@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PrivacyContent from "@/components/sections/PrivacyContent.astro";
+import { getI18N } from "@/i18n/i18n";
+const t = getI18N({ currentLocale: "en" });
+---
+
+<Layout
+  title={`${t.privacyPolicy.header.title} | Homii`}
+  description={t.privacyPolicy.header.intro}
+>
+  <PrivacyContent currentLocale="en" />
+</Layout>

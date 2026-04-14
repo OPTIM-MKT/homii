@@ -1,0 +1,74 @@
+---
+import { getI18N } from "@/i18n/i18n";
+import Button from "@/components/ui/Button";
+import StoreButton from "@/components/ui/StoreButton";
+import ScrollReveal from "@/components/ui/ScrollRevea";
+
+interface Props {
+  currentLocale?: "es" | "en";
+}
+const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } =
+  Astro.props;
+const t = getI18N({ currentLocale });
+const prefix = currentLocale === "es" ? "" : "/en";
+---
+
+<section id="cta" class="relative py-20 md:py-28">
+  <div class="container-x">
+    <ScrollReveal client:load>
+      <div
+        class="relative overflow-hidden rounded-[32px] border border-[var(--border)] bg-gradient-to-br from-shadeBluePrimary via-bluePrimary to-primary p-10 text-white md:p-16"
+      >
+        <div
+          class="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-white/10 blur-3xl"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-primary/30 blur-3xl"
+        >
+        </div>
+
+        <div class="relative flex flex-col items-start gap-6 md:max-w-2xl">
+          <span
+            class="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest backdrop-blur"
+          >
+            {t.cta.eyebrow}
+          </span>
+          <h2 class="heading-lg text-white">{t.cta.title}</h2>
+          <p class="text-lg leading-relaxed text-white/85">
+            {t.cta.description}
+          </p>
+
+          <div class="mt-2 flex flex-wrap gap-3">
+            <StoreButton
+              store="appStore"
+              href={t.download.appStore.href}
+              caption={t.download.appStore.caption}
+              storeName={t.download.appStore.store}
+              ariaLabel={t.download.appStore.ariaLabel}
+            />
+            <StoreButton
+              store="playStore"
+              href={t.download.playStore.href}
+              caption={t.download.playStore.caption}
+              storeName={t.download.playStore.store}
+              ariaLabel={t.download.playStore.ariaLabel}
+            />
+          </div>
+
+          <div class="mt-4">
+            <Button
+              href={`${prefix}/#contact`}
+              variant="outline"
+              className="!border-white/40 !text-white hover:!bg-white/15"
+            >
+              {t.cta.button}
+            </Button>
+          </div>
+
+          <p class="mt-6 text-sm text-white/75">{t.cta.footer}</p>
+        </div>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>

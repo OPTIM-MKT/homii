@@ -1,0 +1,75 @@
+---
+import { getI18N } from "@/i18n/i18n";
+import SectionHeader from "@/components/ui/SectionHeader";
+import ScrollReveal from "@/components/ui/ScrollRevea";
+
+interface Props {
+  currentLocale?: "es" | "en";
+}
+const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } =
+  Astro.props;
+const t = getI18N({ currentLocale });
+
+const iconPaths: Record<string, string> = {
+  amenities:
+    "M12 3 3 8l9 5 9-5-9-5Zm0 13L3 11v5l9 5 9-5v-5l-9 5Z",
+  marketplace:
+    "M3 9h18l-2 11H5L3 9Zm3-5h12l1 4H5l1-4Zm4 8v5m4-5v5",
+  payments: "M3 7h18v10H3zM3 11h18M7 15h4",
+  emergency: "M12 2 2 22h20L12 2Zm0 6v6m0 3v.01",
+  reports: "M9 12h6M9 16h6M8 4h8l4 4v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z",
+  visitors: "M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm4 10v-2a4 4 0 0 0-3-3.87M4 21v-2a4 4 0 0 1 3-3.87",
+  events: "M3 9h18M8 3v4m8-4v4M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z",
+  surveys: "M9 11l3 3 7-7M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9",
+  neighborhood: "M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1v-9Z",
+};
+
+const items = Object.entries(t.features.items).map(([key, value]) => ({
+  key,
+  ...(value as { title: string; description: string }),
+}));
+---
+
+<section id="features" class="py-20 md:py-28">
+  <div class="container-x">
+    <SectionHeader
+      client:load
+      eyebrow={t.features.eyebrow}
+      title={t.features.title}
+      subtitle={t.features.subtitle}
+    />
+
+    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        items.map((item, i) => (
+          <ScrollReveal client:load delay={i * 0.05}>
+            <div class="group relative h-full overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_30px_60px_-30px_rgba(9,173,5,0.35)]">
+              <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d={iconPaths[item.key] ?? iconPaths.amenities} />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold tracking-tight text-[var(--fg)]">
+                {item.title}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">
+                {item.description}
+              </p>
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+            </div>
+          </ScrollReveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+---
+import { getI18N } from "@/i18n/i18n";
+import Logo from "@/components/ui/Logo.astro";
+import StoreButton from "@/components/ui/StoreButton";
+
+interface Props {
+  currentLocale?: "es" | "en";
+}
+
+const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } =
+  Astro.props;
+const t = getI18N({ currentLocale });
+const year = new Date().getFullYear();
+
+const columns = [
+  t.footer.columns.product,
+  t.footer.columns.company,
+  t.footer.columns.legal,
+];
+---
+
+<footer class="relative mt-24 border-t border-[var(--border)] bg-[var(--bg-2)]">
+  <div class="container-x py-16 md:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
+      <div class="flex flex-col gap-6">
+        <Logo href={currentLocale === "es" ? "/" : "/en/"} height={36} />
+        <p class="max-w-sm text-base leading-relaxed text-muted">
+          {t.footer.tagline}
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <StoreButton
+            store="appStore"
+            href={t.download.appStore.href}
+            caption={t.download.appStore.caption}
+            storeName={t.download.appStore.store}
+            ariaLabel={t.download.appStore.ariaLabel}
+          />
+          <StoreButton
+            store="playStore"
+            href={t.download.playStore.href}
+            caption={t.download.playStore.caption}
+            storeName={t.download.playStore.store}
+            ariaLabel={t.download.playStore.ariaLabel}
+          />
+        </div>
+      </div>
+
+      <div class="grid gap-10 sm:grid-cols-3">
+        {
+          columns.map((col) => (
+            <div>
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-[var(--fg)]">
+                {col.title}
+              </h3>
+              <ul class="mt-4 space-y-3">
+                {col.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-sm text-muted transition-colors hover:text-[var(--fg)]"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div
+      class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-[var(--border)] pt-8 text-sm text-muted md:flex-row md:items-center"
+    >
+      <p>© {year} Homii. {t.footer.rights}</p>
+      <p>{t.footer.address}</p>
+    </div>
+  </div>
+</footer>

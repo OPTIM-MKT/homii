@@ -1,0 +1,101 @@
+---
+import { getI18N } from "@/i18n/i18n";
+
+interface Props {
+  currentLocale?: "es" | "en";
+}
+const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } =
+  Astro.props;
+const t = getI18N({ currentLocale });
+const p = t.privacyPolicy;
+---
+
+<section class="pt-32 pb-20 md:pt-40">
+  <article class="container-x prose prose-neutral dark:prose-invert max-w-3xl">
+    <header class="mb-10 not-prose">
+      <h1 class="heading-lg">{p.header.title}</h1>
+      <p class="mt-2 text-sm text-muted">{p.header.lastUpdated}</p>
+      <p class="mt-6 text-lg leading-relaxed text-muted">{p.header.intro}</p>
+    </header>
+
+    <section>
+      <h2>{p.sections.section1.title}</h2>
+      <p>{p.sections.section1.description}</p>
+      <h3>{p.sections.section1.subsections.a.title}</h3>
+      <ul>
+        {p.sections.section1.subsections.a.items.map((i) => <li>{i}</li>)}
+      </ul>
+      <h3>{p.sections.section1.subsections.b.title}</h3>
+      <ul>
+        {p.sections.section1.subsections.b.items.map((i) => <li>{i}</li>)}
+      </ul>
+      <h3>{p.sections.section1.subsections.c.title}</h3>
+      <ul>
+        {p.sections.section1.subsections.c.items.map((i) => <li>{i}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>{p.sections.section2.title}</h2>
+      <p>{p.sections.section2.description}</p>
+      <ul>{p.sections.section2.items.map((i) => <li>{i}</li>)}</ul>
+    </section>
+
+    <section>
+      <h2>{p.sections.section3.title}</h2>
+      <p>{p.sections.section3.description}</p>
+      <ul>{p.sections.section3.items.map((i) => <li>{i}</li>)}</ul>
+    </section>
+
+    <section>
+      <h2>{p.sections.section4.title}</h2>
+      <p>{p.sections.section4.description}</p>
+      <ul>{p.sections.section4.items.map((i) => <li>{i}</li>)}</ul>
+      <p>{p.sections.section4.conclusion}</p>
+    </section>
+
+    <section>
+      <h2>{p.sections.section5.title}</h2>
+      <p>{p.sections.section5.description}</p>
+      <ul>{p.sections.section5.items.map((i) => <li>{i}</li>)}</ul>
+      <p>{p.sections.section5.conclusion}</p>
+    </section>
+
+    <section>
+      <h2>{p.sections.section6.title}</h2>
+      <p>{p.sections.section6.description}</p>
+      <ul>{p.sections.section6.items.map((i) => <li>{i}</li>)}</ul>
+      <p>{p.sections.section6.conclusion}</p>
+    </section>
+
+    <section>
+      <h2>{p.sections.section7.title}</h2>
+      <p>{p.sections.section7.description}</p>
+    </section>
+
+    <section>
+      <h2>{p.sections.section8.title}</h2>
+      <p>{p.sections.section8.description}</p>
+    </section>
+
+    <section>
+      <h2>{p.sections.section9.title}</h2>
+      <p>{p.sections.section9.description}</p>
+    </section>
+
+    <section>
+      <h2>{p.sections.section10.title}</h2>
+      <p>{p.sections.section10.description}</p>
+      <ul>
+        <li>{p.sections.section10.details.phone}</li>
+        <li>{p.sections.section10.details.email}</li>
+        <li>{p.sections.section10.details.company}</li>
+        <li>{p.sections.section10.details.location}</li>
+      </ul>
+    </section>
+
+    <footer class="mt-10 border-t border-[var(--border)] pt-6 text-sm text-muted">
+      {p.footer.agreement}
+    </footer>
+  </article>
+</section>

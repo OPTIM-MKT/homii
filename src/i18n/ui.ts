@@ -9,14 +9,11 @@ export const showDefaultLang = false;
 export const ui = {
   es: {
     "nav.index": "Inicio",
-    "nav.pricing": "Precios",
     "nav.about": "Acerca de",
-    "nav.contact": "Contacto",
-    
+    "nav.contact": "Contacto",    
   },
   en: {
     "nav.index": "Home",
-    "nav.pricing": "Pricing",
     "nav.about": "About",
     "nav.contact": "Contact",
   },
@@ -27,12 +24,10 @@ export const routes = {
     index: "home",
     about: "about",
     contact: "contact",
-    pricing: "pricing",
   },
   es: {
     index: "inicio",
     about: "acerca de",
     contact: "contacto",
-    pricing: "pricing",
   },
 };

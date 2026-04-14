@@ -2,20 +2,44 @@
   "seo": {
     "title": "Homii | Optimiza la Gestión de tu Residencial",
     "description": "Empodera a residentes y administradores con nuestra plataforma móvil integral. Desde reservas de amenidades hasta alertas de emergencia, todo en una app intuitiva.",
-    "keywords": "gestión residencial, app para condominios, administración inmobiliaria, reservas de amenidades, software residencial, seguridad en condominios, pagos de mantenimiento"
+    "keywords": "gestión residencial, app para condominios, administración inmobiliaria, reservas de amenidades, software residencial, seguridad en condominios, pagos de mantenimiento",
+    "ogImage": "/homiiJ.jpg",
+    "siteName": "Homii"
   },
-  "navbar": {
-    "features": "Características",
+  "nav": {
+    "home": "Inicio",
+    "features": "Funciones",
     "demo": "Demo",
-    "contact": "Contacto"
+    "security": "Seguridad",
+    "contact": "Contacto",
+    "cta": "Descargar",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "theme": {
+    "toggleLight": "Activar modo claro",
+    "toggleDark": "Activar modo oscuro"
+  },
+  "language": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "Inglés"
   },
   "hero": {
+    "eyebrow": "Plataforma residencial all-in-one",
     "title": "Optimiza la Gestión de tu Residencial con Soluciones Mobile-First",
     "subtitle": "Empodera a residentes y administradores con nuestra plataforma móvil integral. Desde reservas de amenidades hasta alertas de emergencia, todo lo que necesitas en una app intuitiva.",
     "cta": "Ver Demo",
-    "socialProof": "4.9/5 de más de 2,000 administradores de propiedades"
+    "ctaSecondary": "Conocer más",
+    "socialProof": "4.9/5 de más de 2,000 administradores de propiedades",
+    "stats": {
+      "residents": { "value": "20K+", "label": "Residentes activos" },
+      "buildings": { "value": "350+", "label": "Edificios conectados" },
+      "uptime": { "value": "99.9%", "label": "Disponibilidad" }
+    }
   },
   "features": {
+    "eyebrow": "Funciones",
     "title": "Todo lo que Necesitas en Una Plataforma",
     "subtitle": "Herramientas integrales de gestión inmobiliaria diseñadas para la vida moderna",
     "items": {
@@ -58,32 +82,20 @@
     }
   },
   "demo": {
+    "eyebrow": "Experiencia móvil",
     "title": "Ve homii en Acción",
-    "subtitle": "Mira cómo nuestra plataforma mobile-first transforma la gestión inmobiliaria"
-  },
-  "testimonials": {
-    "title": "Confiado por Administradores Inmobiliarios a Nivel Nacional",
-    "subtitle": "Ve lo que dicen nuestros clientes sobre su experiencia",
-    "reviews": [
-      {
-        "quote": "\"homii ha transformado completamente cómo gestionamos nuestras propiedades. La app móvil hace todo mucho más fácil tanto para nuestro equipo como para los residentes.\"",
-        "author": "Sarah Johnson",
-        "role": "Administradora de Propiedades, Downtown Residences"
-      },
-      {
-        "quote": "\"Las funciones de emergencia y gestión de visitantes han sido revolucionarias. Nuestros residentes se sienten más seguros y conectados con su comunidad.\"",
-        "author": "Mike Chen",
-        "role": "Administrador de Edificio, Metro Heights"
-      },
-      {
-        "quote": "\"Solo el sistema de reserva de amenidades nos ha ahorrado incontables horas. Los residentes aman la conveniencia y nosotros amamos la eficiencia.\"",
-        "author": "Lisa Rodriguez",
-        "role": "Gerente Comunitaria, Sunset Gardens"
-      }
+    "subtitle": "Mira cómo nuestra plataforma mobile-first transforma la gestión inmobiliaria",
+    "slides": [
+      { "title": "Inicio intuitivo", "description": "Panel personalizado con tus accesos, eventos y pagos del día." },
+      { "title": "Reservas en segundos", "description": "Agenda amenidades con calendario en tiempo real y recordatorios." },
+      { "title": "Acceso con QR", "description": "Registra visitas y comparte accesos temporales sin fricción." },
+      { "title": "Pagos sin filas", "description": "Mantén tu cuenta al día desde tu celular con métodos seguros." }
     ]
   },
   "security": {
+    "eyebrow": "Confianza y cumplimiento",
     "title": "Seguridad de Nivel Empresarial",
+    "subtitle": "Protegemos los datos de tu comunidad con los estándares más exigentes.",
     "badges": [
       "Encriptación de Extremo a Extremo",
       "Cumple con GDPR",
@@ -92,9 +104,189 @@
     ]
   },
   "cta": {
+    "eyebrow": "Comienza hoy",
     "title": "Ofrecemos Soluciones para tus Necesidades",
     "description": "¿Listo para transformar tu experiencia de gestión inmobiliaria? Ponte en contacto con nuestro equipo para discutir cómo homii puede adaptarse a tus requisitos específicos.",
     "button": "Contáctanos",
     "footer": "Únete a miles de administradores inmobiliarios y residentes satisfechos"
+  },
+  "download": {
+    "title": "Descarga la app",
+    "subtitle": "Disponible para iOS y Android",
+    "appStore": {
+      "caption": "Descárgalo en",
+      "store": "App Store",
+      "ariaLabel": "Descargar Homii en App Store",
+      "href": "https://apps.apple.com/app/homii"
+    },
+    "playStore": {
+      "caption": "Disponible en",
+      "store": "Google Play",
+      "ariaLabel": "Descargar Homii en Google Play",
+      "href": "https://play.google.com/store/apps/details?id=com.homii"
+    }
+  },
+  "footer": {
+    "tagline": "La plataforma mobile-first que moderniza la vida residencial.",
+    "rights": "Todos los derechos reservados.",
+    "columns": {
+      "product": {
+        "title": "Producto",
+        "links": [
+          { "label": "Funciones", "href": "#features" },
+          { "label": "Demo", "href": "#demo" },
+          { "label": "Seguridad", "href": "#security" }
+        ]
+      },
+      "company": {
+        "title": "Compañía",
+        "links": [
+          { "label": "Acerca de", "href": "/about" },
+          { "label": "Contacto", "href": "/contact" }
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacidad", "href": "/privacy" }
+        ]
+      }
+    },
+    "address": "Monterrey, México"
+  },
+  "wip": {
+    "title": "En construcción",
+    "subtitle": "Estamos trabajando en esta sección. Vuelve pronto para verla en acción.",
+    "backHome": "Volver al inicio"
+  },
+  "about": {
+    "title": "Acerca de Homii",
+    "subtitle": "Construimos la experiencia residencial del futuro."
+  },
+  "contact": {
+    "title": "Hablemos",
+    "subtitle": "¿Tienes preguntas? Contáctanos y te responderemos a la brevedad.",
+    "email": "cesarlozano@optimmkt.com",
+    "phone": "+52 81 2446 7284"
+  },
+  "privacyPolicy": {
+    "header": {
+      "title": "Política de Privacidad – Homii",
+      "lastUpdated": "Última actualización: 13/04/2026",
+      "intro": "Homii (\"nosotros\" o \"nuestro\") respeta su privacidad y se compromete a proteger sus datos personales. Esta Política de Privacidad explica cómo recopilamos, usamos y salvaguardamos su información cuando utiliza nuestra aplicación móvil y servicios (el \"Servicio\")."
+    },
+    "sections": {
+      "section1": {
+        "title": "1. Información que Recopilamos",
+        "description": "Podemos recopilar y procesar los siguientes tipos de información:",
+        "subsections": {
+          "a": {
+            "title": "a. Información Personal",
+            "items": [
+              "Nombre completo",
+              "Correo electrónico",
+              "Número de teléfono",
+              "Información de perfil proporcionada por usuarios o administradores"
+            ]
+          },
+          "b": {
+            "title": "b. Información Residencial y de Acceso",
+            "items": [
+              "Dirección o detalles de la comunidad residencial",
+              "Registros de visitantes (nombre, hora de entrada, motivo de la visita)",
+              "Registros de acceso con código QR",
+              "Marcas de tiempo de entrada y salida"
+            ]
+          },
+          "c": {
+            "title": "c. Datos de Dispositivo y Uso",
+            "items": [
+              "Tipo de dispositivo y sistema operativo",
+              "Dirección IP",
+              "Comportamiento de uso de la app",
+              "Datos de registro y análisis"
+            ]
+          }
+        }
+      },
+      "section2": {
+        "title": "2. Cómo Usamos su Información",
+        "description": "Usamos la información recopilada para:",
+        "items": [
+          "Proporcionar y operar la plataforma Homii",
+          "Gestionar el acceso residencial y el registro de visitantes",
+          "Generar y validar códigos QR para la entrada",
+          "Permitir a los administradores monitorear la actividad dentro de las comunidades",
+          "Mejorar el rendimiento, la seguridad y la experiencia de usuario de la app",
+          "Comunicarnos con los usuarios sobre actualizaciones, soporte o notificaciones importantes"
+        ]
+      },
+      "section3": {
+        "title": "3. Compartir Información",
+        "description": "No vendemos sus datos personales. Podemos compartir su información solo en los siguientes casos:",
+        "items": [
+          "Con administradores residenciales autorizados que gestionan su comunidad",
+          "Con proveedores de servicios que nos ayudan a operar la plataforma (ej. alojamiento, análisis)",
+          "Si es requerido por la ley, regulación o proceso legal",
+          "Para proteger la seguridad, los derechos o la propiedad de los usuarios o de Homii"
+        ]
+      },
+      "section4": {
+        "title": "4. Almacenamiento y Seguridad de Datos",
+        "description": "Implementamos medidas técnicas y organizativas adecuadas para proteger sus datos, incluyendo:",
+        "items": [
+          "Servidores seguros y conexiones encriptadas",
+          "Sistemas de control de acceso",
+          "Monitoreo y actualizaciones regulares"
+        ],
+        "conclusion": "Sin embargo, ningún sistema es completamente seguro, y no podemos garantizar una seguridad absoluta."
+      },
+      "section5": {
+        "title": "5. Retención de Datos",
+        "description": "Retenemos su información solo el tiempo necesario para:",
+        "items": [
+          "Proporcionar el servicio",
+          "Cumplir con obligaciones legales",
+          "Resolver disputas y hacer cumplir acuerdos"
+        ],
+        "conclusion": "Los administradores pueden tener control sobre ciertos datos dentro de su sistema residencial."
+      },
+      "section6": {
+        "title": "6. Sus Derechos",
+        "description": "Dependiendo de su ubicación, puede tener derecho a:",
+        "items": [
+          "Acceder a sus datos personales",
+          "Solicitar corrección o eliminación",
+          "Retirar el consentimiento donde aplique",
+          "Solicitar la limitación del procesamiento"
+        ],
+        "conclusion": "Para ejercer estos derechos, contáctenos en: cesarlozano@optimmkt.com"
+      },
+      "section7": {
+        "title": "7. Servicios de Terceros",
+        "description": "Homii puede utilizar herramientas de terceros (ej. análisis, alojamiento en la nube). Estos proveedores pueden procesar datos bajo sus propias políticas de privacidad. Nos aseguramos de que dichos proveedores sigan los estándares adecuados de protección de datos."
+      },
+      "section8": {
+        "title": "8. Privacidad Infantil",
+        "description": "Homii no está destinado para ser utilizado por niños menores de 13 años (o la edad mínima equivalente en su jurisdicción). No recopilamos conscientemente datos de niños."
+      },
+      "section9": {
+        "title": "9. Cambios a esta Política",
+        "description": "Podemos actualizar esta Política de Privacidad de vez en cuando. Los cambios se publicarán dentro de la app o en nuestro sitio web con una fecha de revisión actualizada."
+      },
+      "section10": {
+        "title": "10. Contáctenos",
+        "description": "Si tiene alguna pregunta sobre esta Política de Privacidad o sus datos, puede contactarnos en:",
+        "details": {
+          "phone": "Teléfono: +52 81 2446 7284",
+          "email": "Correo electrónico: cesarlozano@optimmkt.com",
+          "company": "Empresa: Homii",
+          "location": "Ubicación: Monterrey, México"
+        }
+      }
+    },
+    "footer": {
+      "agreement": "Al usar Homii, usted acepta esta Política de Privacidad."
+    }
   }
 }

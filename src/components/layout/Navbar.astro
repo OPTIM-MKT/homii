@@ -1,0 +1,161 @@
+---
+import { getI18N } from "@/i18n/i18n";
+import Logo from "@/components/ui/Logo.astro";
+import ThemeToggle from "@/components/ui/ThemeToggle";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import Button from "@/components/ui/Button";
+
+interface Props {
+  currentLocale?: "es" | "en";
+}
+
+const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } =
+  Astro.props;
+const t = getI18N({ currentLocale });
+
+const prefix = currentLocale === "es" ? "" : "/en";
+const links = [
+  { label: t.nav.home, href: `${prefix}/` },
+  { label: t.about.title, href: `${prefix}/about` },
+  { label: t.nav.contact, href: `${prefix}/contact` },
+];
+
+const esHref = "/";
+const enHref = "/en/";
+---
+
+<header
+  id="site-nav"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+>
+  <div
+    class="mx-auto mt-3 flex max-w-[1200px] items-center justify-between gap-6 rounded-full border border-transparent px-4 py-2 transition-all duration-300 md:mt-4 md:px-6"
+    id="site-nav-inner"
+  >
+    <Logo href={`${prefix}/`} height={32} className="text-[var(--fg)]" />
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-full px-4 py-2 text-sm font-medium text-[var(--fg)]/80 transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <LanguageSwitcher
+        client:load
+        currentLocale={currentLocale}
+        esHref={esHref}
+        enHref={enHref}
+        label={t.language.label}
+      />
+      <ThemeToggle
+        client:load
+        labelLight={t.theme.toggleLight}
+        labelDark={t.theme.toggleDark}
+      />
+      <div class="hidden md:block">
+        <Button href={`${prefix}/#cta`} size="sm" variant="primary">
+          {t.nav.cta}
+        </Button>
+      </div>
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--fg)] md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={t.nav.openMenu}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          ><line x1="3" y1="6" x2="21" y2="6"></line><line
+            x1="3"
+            y1="12"
+            x2="21"
+            y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg
+        >
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="pointer-events-none fixed inset-x-0 top-[72px] mx-3 origin-top scale-95 rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-4 opacity-0 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.2)] transition-all duration-300 md:hidden"
+    aria-hidden="true"
+  >
+    <nav class="flex flex-col gap-1" aria-label="Mobile">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-2xl px-4 py-3 text-base font-medium text-[var(--fg)] transition-colors hover:bg-[var(--bg-2)]"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <div class="mt-2">
+        <Button href={`${prefix}/#cta`} fullWidth>
+          {t.nav.cta}
+        </Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const nav = document.getElementById("site-nav-inner");
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    if (!nav) return;
+
+    const onScroll = () => {
+      const scrolled = window.scrollY > 12;
+      nav.classList.toggle("surface-2", scrolled);
+      nav.classList.toggle("hairline", scrolled);
+      nav.classList.toggle("border-[var(--border)]", scrolled);
+      nav.classList.toggle("backdrop-blur-xl", scrolled);
+      nav.classList.toggle(
+        "shadow-[0_10px_30px_-20px_rgba(0,0,0,0.2)]",
+        scrolled,
+      );
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    if (!btn || !menu) return;
+    const toggle = () => {
+      const open = btn.getAttribute("aria-expanded") === "true";
+      const next = !open;
+      btn.setAttribute("aria-expanded", String(next));
+      menu.setAttribute("aria-hidden", String(!next));
+      menu.classList.toggle("pointer-events-auto", next);
+      menu.classList.toggle("opacity-100", next);
+      menu.classList.toggle("scale-100", next);
+      menu.classList.toggle("opacity-0", !next);
+      menu.classList.toggle("scale-95", !next);
+    };
+    btn.addEventListener("click", toggle);
+    menu.addEventListener("click", (e) => {
+      if ((e.target && e.target.tagName === "A") || e.target === menu) {
+        if (btn.getAttribute("aria-expanded") === "true") toggle();
+      }
+    });
+  })();
+</script>
