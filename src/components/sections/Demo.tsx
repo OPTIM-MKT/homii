@@ -1,10 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
+import { useEffect } from "react";
 import { useReactI18n } from "@/i18n/useReacti18n";
 import cel from "@/assets/cel.png";
+
 
 interface DemoProps {
   lang?: string;
@@ -12,6 +11,14 @@ interface DemoProps {
 
 export default function Demo({ lang }: DemoProps) {
   const { t } = useReactI18n(lang);
+
+  // Load Swiper CSS dynamically to avoid render-blocking
+  useEffect(() => {
+    import("swiper/css");
+    import("swiper/css/effect-coverflow");
+    import("swiper/css/pagination");
+  }, []);
+
 
   return (
     <section id="demo" className="relative overflow-hidden py-20 md:py-28">
@@ -48,13 +55,17 @@ export default function Demo({ lang }: DemoProps) {
             {t.demo.slides.map((slide, i) => (
               <SwiperSlide
                 key={i}
-                className="!w-[280px] sm:!w-[320px]"
+              className="!w-[300px]"
               >
                 <div className="group relative flex flex-col items-center">
                   <div className="absolute inset-0 -z-10 mx-auto h-[540px] w-[280px] rounded-[44px] bg-gradient-to-b from-primary/20 to-bluePrimary/10 blur-2xl" />
                   <img
                     src={cel.src}
                     alt={slide.title}
+                    width={280}
+                    height={540}
+                    loading="lazy"
+                    decoding="async"
                     className="h-[540px] w-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]"
                   />
                   <div className="mt-5 text-center">

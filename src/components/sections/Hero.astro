@@ -32,6 +32,8 @@ const stats = [
     <Image
       src={heroBg}
       alt=""
+      widths={[640, 1024, 1400]}
+      sizes="100vw"
       class="h-full w-full object-cover opacity-25 dark:opacity-20"
       loading="eager"
     />
@@ -83,7 +85,7 @@ const stats = [
 
     <ScrollReveal client:load direction="left" delay={0.2}>
       <div
-        class="relative mx-auto flex w-full max-w-[280px] items-center justify-center sm:max-w-[320px] lg:max-w-[340px]"
+        class="relative mx-auto flex w-full max-w-[300px] items-center justify-center lg:max-w-[340px]"
       >
         <div
           class="pointer-events-none absolute inset-0 -z-10 scale-125 rounded-full bg-gradient-to-tr from-primary/30 via-bluePrimary/20 to-transparent blur-3xl"
@@ -92,10 +94,12 @@ const stats = [
         <Image
           src={cel}
           alt="Homii app preview"
-          widths={[280, 340, 473]}
-          sizes="(min-width: 1024px) 340px, (min-width: 640px) 320px, 280px"
+          widths={[300, 340, 473]}
+          sizes="(min-width: 1024px) 340px, 300px"
           format="avif"
-          quality={"low"}
+          quality="low"
+          loading="eager"
+          fetchpriority="high"
           class="h-auto w-full object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.35)]"
         />
       </div>
