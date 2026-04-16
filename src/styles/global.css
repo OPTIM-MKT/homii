@@ -144,4 +144,21 @@
   .hairline {
     border-color: var(--border);
   }
+
+  /* ── Keyword accent ── */
+  /* Usage in Astro: <span class="accent">residencia</span>              */
+  /* Usage with i18n: <h2 class="heading-lg" set:html={t.hero.title} /> */
+  /* In translation strings wrap words: "Tu <accent>residencia</accent>" */
+  .accent {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      var(--color-shadePrimary) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline;
+  }
 }
