@@ -1,10 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import WorkInProgress from "@/components/ui/WIP";
+import Contacto from "@/components/sections/Contacto.astro";
 import { getI18N } from "@/i18n/i18n";
 const t = getI18N({ currentLocale: "es" });
 ---
 
 <Layout title={`${t.contact.title} | Homii`} description={t.contact.subtitle}>
-  <WorkInProgress client:load lang="es" />
+  <Contacto currentLocale="es" />
 </Layout>
