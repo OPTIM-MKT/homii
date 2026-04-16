@@ -27,7 +27,7 @@
   },
   "hero": {
     "eyebrow": "Plataforma residencial all-in-one",
-    "title": "Optimiza la Gestión de tu Residencial con Soluciones Mobile-First",
+    "title": "Optimiza la Gestión de tu <span class=\"accent\">Residencial</span> con Soluciones Mobile-First",
     "subtitle": "Empodera a residentes y administradores con nuestra plataforma móvil integral. Desde reservas de amenidades hasta alertas de emergencia, todo lo que necesitas en una app intuitiva.",
     "cta": "Ver Demo",
     "ctaSecondary": "Conocer más",
@@ -165,7 +165,7 @@
   },
   "contact": {
     "title": "¿Estás interesado?",
-    "subtitle": "¡Contáctanos y descubre cómo Homii puede perfeccionar tu residencia!",
+    "subtitle": "¡Contáctanos y descubre cómo Homii puede perfeccionar tu <span class=\"accent\">residencia</span>!",
     "email": "cesarlozano@optimmkt.com",
     "phone": "+52 81 2446 7284"
   },

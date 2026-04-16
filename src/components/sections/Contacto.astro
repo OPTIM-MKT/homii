@@ -52,9 +52,10 @@ const WA = `https://wa.me/${PHONE_RAW.replace(/\D/g, "")}`;
     <div class="contact-header mb-16 text-center">
       <span class="eyebrow mb-4 block">{labels.eyebrow}</span>
       <h1 class="heading-xl mb-5">{t.contact.title}</h1>
-      <p class="mx-auto max-w-xl text-lg leading-relaxed text-[var(--muted)]">
-        {t.contact.subtitle}
-      </p>
+      <p
+        class="mx-auto max-w-xl text-lg leading-relaxed text-[var(--muted)]"
+        set:html={t.contact.subtitle}
+      />
     </div>
 
     <!-- Bento grid -->

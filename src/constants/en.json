@@ -27,7 +27,7 @@
   },
   "hero": {
     "eyebrow": "All-in-one residential platform",
-    "title": "Optimize Your Residential Management with Mobile-First Solutions",
+    "title": "Optimize Your <span class=\"accent\">Residential</span> Management with Mobile-First Solutions",
     "subtitle": "Empower residents and administrators with our comprehensive mobile platform. From amenity reservations to emergency alerts, everything you need in an intuitive app.",
     "cta": "View Demo",
     "ctaSecondary": "Learn more",
@@ -165,7 +165,7 @@
   },
   "contact": {
     "title": "Are you interested?",
-    "subtitle": "Contact us and discover how Homii can perfect your residence!",
+    "subtitle": "Contact us and discover how Homii can perfect your <span class=\"accent\">residence</span>!",
     "email": "cesarlozano@optimmkt.com",
     "phone": "+52 81 2446 7284"
   },
