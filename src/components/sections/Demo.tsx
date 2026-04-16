@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import { useEffect } from "react";
 import { useReactI18n } from "@/i18n/useReacti18n";
 import cel from "@/assets/cel.png";
@@ -17,6 +17,7 @@ export default function Demo({ lang }: DemoProps) {
     import("swiper/css");
     import("swiper/css/effect-coverflow");
     import("swiper/css/pagination");
+    import("swiper/css/navigation");
   }, []);
 
 
@@ -33,7 +34,28 @@ export default function Demo({ lang }: DemoProps) {
           <p className="text-lg text-muted leading-relaxed">{t.demo.subtitle}</p>
         </div>
 
-        <div className="mt-16">
+        <div className="relative mt-16">
+          {/* Custom nav arrows */}
+          <button
+            type="button"
+            className="homii-swiper-prev absolute left-0 top-1/2 z-10 -translate-y-1/2 hidden sm:flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--bg)]/80 text-[var(--fg)] shadow-md backdrop-blur-sm transition-all hover:bg-[var(--bg-2)] hover:scale-105 active:scale-95"
+            aria-label="Previous slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            className="homii-swiper-next absolute right-0 top-1/2 z-10 -translate-y-1/2 hidden sm:flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--bg)]/80 text-[var(--fg)] shadow-md backdrop-blur-sm transition-all hover:bg-[var(--bg-2)] hover:scale-105 active:scale-95"
+            aria-label="Next slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+
           <Swiper
             effect="coverflow"
             grabCursor
@@ -49,7 +71,11 @@ export default function Demo({ lang }: DemoProps) {
               slideShadows: false,
             }}
             pagination={{ clickable: true }}
-            modules={[EffectCoverflow, Autoplay, Pagination]}
+            navigation={{
+              prevEl: ".homii-swiper-prev",
+              nextEl: ".homii-swiper-next",
+            }}
+            modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
             className="homii-swiper !pb-14"
           >
             {t.demo.slides.map((slide, i) => (

@@ -102,7 +102,7 @@ const enHref = `/en${basePath === "/" ? "/" : basePath}`;
     class="pointer-events-none fixed inset-x-0 top-[72px] mx-3 origin-top scale-95 rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-4 opacity-0 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.2)] transition-all duration-300 md:hidden"
     aria-hidden="true"
   >
-    <nav class="flex flex-col gap-1" aria-label="Mobile">
+    <nav class="pointer-events-auto flex flex-col gap-1" aria-label="Mobile">
       {
         links.map((link) => (
           <a
@@ -149,16 +149,18 @@ const enHref = `/en${basePath === "/" ? "/" : basePath}`;
       const next = !open;
       btn.setAttribute("aria-expanded", String(next));
       menu.setAttribute("aria-hidden", String(!next));
-      menu.classList.toggle("pointer-events-auto", next);
+      // Toggle pointer-events on the container so the backdrop is non-interactive when hidden
+      menu.classList.toggle("pointer-events-none", !next);
       menu.classList.toggle("opacity-100", next);
       menu.classList.toggle("scale-100", next);
       menu.classList.toggle("opacity-0", !next);
       menu.classList.toggle("scale-95", !next);
     };
     btn.addEventListener("click", toggle);
+    // Close on link click (navigation or backdrop tap)
     menu.addEventListener("click", (e) => {
       const anchor = e.target && e.target.closest("a");
-      if (anchor || e.target === menu) {
+      if (anchor) {
         if (btn.getAttribute("aria-expanded") === "true") toggle();
       }
     });
