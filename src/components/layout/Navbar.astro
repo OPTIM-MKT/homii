@@ -65,7 +65,7 @@ const enHref = `/en${basePath === "/" ? "/" : basePath}`;
         labelDark={t.theme.toggleDark}
       />
       <div class="hidden md:block">
-        <Button href={`${prefix}/#cta`} size="sm" variant="primary">
+        <Button href={`${prefix}/contact`} size="sm" variant="primary">
           {t.nav.cta}
         </Button>
       </div>
@@ -114,7 +114,7 @@ const enHref = `/en${basePath === "/" ? "/" : basePath}`;
         ))
       }
       <div class="mt-2">
-        <Button href={`${prefix}/#cta`} fullWidth>
+        <Button href={`${prefix}/contact`} fullWidth>
           {t.nav.cta}
         </Button>
       </div>
@@ -157,7 +157,8 @@ const enHref = `/en${basePath === "/" ? "/" : basePath}`;
     };
     btn.addEventListener("click", toggle);
     menu.addEventListener("click", (e) => {
-      if ((e.target && e.target.tagName === "A") || e.target === menu) {
+      const anchor = e.target && e.target.closest("a");
+      if (anchor || e.target === menu) {
         if (btn.getAttribute("aria-expanded") === "true") toggle();
       }
     });

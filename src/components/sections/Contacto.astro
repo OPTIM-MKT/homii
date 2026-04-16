@@ -5,7 +5,8 @@ interface Props {
   currentLocale?: "es" | "en";
 }
 
-const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } = Astro.props;
+const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } =
+  Astro.props;
 const t = getI18N({ currentLocale });
 
 const isEs = currentLocale === "es";
@@ -22,7 +23,7 @@ const labels = {
   responseLabel: isEs ? "Tiempo de respuesta" : "Response time",
   responseValue: isEs ? "Menos de 24 horas" : "Under 24 hours",
   hoursLabel: isEs ? "Horario" : "Business hours",
-  hoursValue: isEs ? "Lunes – Viernes, 9am – 6pm" : "Monday – Friday, 9am – 6pm",
+  hoursValue: isEs ? "Lunes – Domingo, 24 hr" : "Monday – Sunday, 24 hr",
 };
 
 const EMAIL = "cesarlozano@optimmkt.com";
@@ -36,8 +37,14 @@ const WA = `https://wa.me/${PHONE_RAW.replace(/\D/g, "")}`;
 <section id="contact" class="relative overflow-hidden py-20 md:py-28">
   <!-- Background atmosphere -->
   <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/8 blur-[120px] dark:bg-primary/5"></div>
-    <div class="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-bluePrimary/10 blur-[100px] dark:bg-bluePrimary/6"></div>
+    <div
+      class="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/8 blur-[120px] dark:bg-primary/5"
+    >
+    </div>
+    <div
+      class="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-bluePrimary/10 blur-[100px] dark:bg-bluePrimary/6"
+    >
+    </div>
   </div>
 
   <div class="container-x">
@@ -52,21 +59,45 @@ const WA = `https://wa.me/${PHONE_RAW.replace(/\D/g, "")}`;
 
     <!-- Bento grid -->
     <div class="bento-grid grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-
       <!-- ── Email card – wide (span 7) ── -->
-      <article class="bento-card email-card col-span-full lg:col-span-7 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_32px_64px_-24px_rgba(9,173,5,0.28)]">
+      <article
+        class="bento-card email-card col-span-full lg:col-span-7 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_32px_64px_-24px_rgba(9,173,5,0.28)]"
+      >
         <!-- Gradient accent -->
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-        <div class="pointer-events-none absolute right-0 top-0 h-40 w-40 rounded-bl-full bg-primary/8 blur-2xl transition-opacity group-hover:opacity-150"></div>
+        <div
+          class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute right-0 top-0 h-40 w-40 rounded-bl-full bg-primary/8 blur-2xl transition-opacity group-hover:opacity-150"
+        >
+        </div>
 
         <!-- Icon badge -->
-        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary ring-1 ring-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:ring-primary/0 group-hover:shadow-[0_12px_32px_-8px_rgba(9,173,5,0.5)]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        <div
+          class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary ring-1 ring-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:ring-primary/0 group-hover:shadow-[0_12px_32px_-8px_rgba(9,173,5,0.5)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+              d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
           </svg>
         </div>
 
-        <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">{labels.emailLabel}</p>
+        <p
+          class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]"
+        >
+          {labels.emailLabel}
+        </p>
         <a
           href={MAILTO}
           id="contact-email-link"
@@ -80,28 +111,69 @@ const WA = `https://wa.me/${PHONE_RAW.replace(/\D/g, "")}`;
           id="contact-email-cta"
           class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(9,173,5,0.55)] transition-all duration-200 hover:bg-shadePrimary hover:shadow-[0_16px_40px_-12px_rgba(9,173,5,0.6)] active:scale-95"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+            ></path>
           </svg>
           {labels.emailAction}
         </a>
 
         <!-- Bottom shimmer line -->
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <div
+          class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+        </div>
       </article>
 
       <!-- ── Phone card – narrow (span 5) ── -->
-      <article class="bento-card phone-card col-span-full lg:col-span-5 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-bluePrimary/50 hover:shadow-[0_32px_64px_-24px_rgba(8,73,170,0.28)]">
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-bluePrimary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-        <div class="pointer-events-none absolute -right-8 -top-8 h-48 w-48 rounded-full bg-bluePrimary/8 blur-3xl"></div>
+      <article
+        class="bento-card phone-card col-span-full lg:col-span-5 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-bluePrimary/50 hover:shadow-[0_32px_64px_-24px_rgba(8,73,170,0.28)]"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 bg-gradient-to-br from-bluePrimary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute -right-8 -top-8 h-48 w-48 rounded-full bg-bluePrimary/8 blur-3xl"
+        >
+        </div>
 
-        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-bluePrimary/12 text-bluePrimary ring-1 ring-bluePrimary/20 transition-all duration-300 group-hover:bg-bluePrimary group-hover:text-white group-hover:shadow-[0_12px_32px_-8px_rgba(8,73,170,0.5)]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        <div
+          class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-bluePrimary/12 text-bluePrimary ring-1 ring-bluePrimary/20 transition-all duration-300 group-hover:bg-bluePrimary group-hover:text-white group-hover:shadow-[0_12px_32px_-8px_rgba(8,73,170,0.5)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            ></path>
           </svg>
         </div>
 
-        <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">{labels.phoneLabel}</p>
+        <p
+          class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]"
+        >
+          {labels.phoneLabel}
+        </p>
         <a
           href={TEL}
           id="contact-phone-link"
@@ -116,8 +188,20 @@ const WA = `https://wa.me/${PHONE_RAW.replace(/\D/g, "")}`;
             id="contact-phone-call-cta"
             class="inline-flex items-center gap-2 rounded-full bg-bluePrimary px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(8,73,170,0.55)] transition-all duration-200 hover:bg-shadeBluePrimary hover:shadow-[0_16px_40px_-12px_rgba(8,73,170,0.6)] active:scale-95"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
             </svg>
             {labels.phoneAction}
           </a>
@@ -130,49 +214,129 @@ const WA = `https://wa.me/${PHONE_RAW.replace(/\D/g, "")}`;
             class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-5 py-3 text-sm font-semibold text-[var(--fg)] transition-all duration-200 hover:border-[#25D366]/50 hover:bg-[#25D366]/8 hover:text-[#25D366] active:scale-95"
           >
             <!-- WhatsApp SVG icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
+              ></path>
             </svg>
             {labels.whatsappAction}
           </a>
         </div>
 
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-bluePrimary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <div
+          class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-bluePrimary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+        </div>
       </article>
 
       <!-- ── Location card ── -->
-      <article class="bento-card col-span-full md:col-span-1 lg:col-span-4 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-2)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30">
-        <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15 transition-all duration-300 group-hover:bg-primary group-hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+      <article
+        class="bento-card col-span-full md:col-span-1 lg:col-span-4 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-2)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+      >
+        <div
+          class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15 transition-all duration-300 group-hover:bg-primary group-hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+            ></path><circle cx="12" cy="10" r="3"></circle>
           </svg>
         </div>
-        <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">{labels.locationLabel}</p>
-        <p class="text-base font-semibold text-[var(--fg)]">{labels.locationValue}</p>
+        <p
+          class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]"
+        >
+          {labels.locationLabel}
+        </p>
+        <p class="text-base font-semibold text-[var(--fg)]">
+          {labels.locationValue}
+        </p>
       </article>
 
       <!-- ── Response time card ── -->
-      <article class="bento-card col-span-full md:col-span-1 lg:col-span-4 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-2)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30">
-        <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15 transition-all duration-300 group-hover:bg-primary group-hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      <article
+        class="bento-card col-span-full md:col-span-1 lg:col-span-4 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-2)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+      >
+        <div
+          class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15 transition-all duration-300 group-hover:bg-primary group-hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10"></circle><polyline
+              points="12 6 12 12 16 14"></polyline>
           </svg>
         </div>
-        <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">{labels.responseLabel}</p>
-        <p class="text-base font-semibold text-[var(--fg)]">{labels.responseValue}</p>
+        <p
+          class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]"
+        >
+          {labels.responseLabel}
+        </p>
+        <p class="text-base font-semibold text-[var(--fg)]">
+          {labels.responseValue}
+        </p>
       </article>
 
       <!-- ── Hours card ── -->
-      <article class="bento-card col-span-full md:col-span-2 lg:col-span-4 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-2)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-bluePrimary/30">
-        <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-bluePrimary/10 text-bluePrimary ring-1 ring-bluePrimary/15 transition-all duration-300 group-hover:bg-bluePrimary group-hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+      <article
+        class="bento-card col-span-full md:col-span-2 lg:col-span-4 group relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-2)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-bluePrimary/30"
+      >
+        <div
+          class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-bluePrimary/10 text-bluePrimary ring-1 ring-bluePrimary/15 transition-all duration-300 group-hover:bg-bluePrimary group-hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line
+              x1="16"
+              x2="16"
+              y1="2"
+              y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line
+              x1="3"
+              x2="21"
+              y1="10"
+              y2="10"></line>
           </svg>
         </div>
-        <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">{labels.hoursLabel}</p>
-        <p class="text-base font-semibold text-[var(--fg)]">{labels.hoursValue}</p>
+        <p
+          class="mb-1 text-xs font-semibold uppercase tracking-widest text-[var(--muted)]"
+        >
+          {labels.hoursLabel}
+        </p>
+        <p class="text-base font-semibold text-[var(--fg)]">
+          {labels.hoursValue}
+        </p>
       </article>
-
     </div><!-- /bento-grid -->
   </div><!-- /container-x -->
 </section>
@@ -186,11 +350,21 @@ const WA = `https://wa.me/${PHONE_RAW.replace(/\D/g, "")}`;
     animation: fade-up 0.6s ease both;
   }
 
-  .email-card { animation-delay: 0.1s; }
-  .phone-card { animation-delay: 0.18s; }
-  .bento-card:nth-child(3) { animation-delay: 0.26s; }
-  .bento-card:nth-child(4) { animation-delay: 0.32s; }
-  .bento-card:nth-child(5) { animation-delay: 0.38s; }
+  .email-card {
+    animation-delay: 0.1s;
+  }
+  .phone-card {
+    animation-delay: 0.18s;
+  }
+  .bento-card:nth-child(3) {
+    animation-delay: 0.26s;
+  }
+  .bento-card:nth-child(4) {
+    animation-delay: 0.32s;
+  }
+  .bento-card:nth-child(5) {
+    animation-delay: 0.38s;
+  }
 
   @keyframes fade-up {
     from {
