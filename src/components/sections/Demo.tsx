@@ -1,9 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
-import { useEffect } from "react";
 import { useReactI18n } from "@/i18n/useReacti18n";
 import cel from "@/assets/cel.png";
 
+// Load Swiper CSS 
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface DemoProps {
   lang?: string;
@@ -11,14 +15,6 @@ interface DemoProps {
 
 export default function Demo({ lang }: DemoProps) {
   const { t } = useReactI18n(lang);
-
-  // Load Swiper CSS dynamically to avoid render-blocking
-  useEffect(() => {
-    import("swiper/css");
-    import("swiper/css/effect-coverflow");
-    import("swiper/css/pagination");
-    import("swiper/css/navigation");
-  }, []);
 
 
   return (
