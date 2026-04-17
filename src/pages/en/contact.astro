@@ -1,10 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Contacto from "@/components/sections/Contacto.astro";
+import ContactForm from "@/components/contact/ContactForm";
 import { getI18N } from "@/i18n/i18n";
 const t = getI18N({ currentLocale: "en" });
 ---
 
 <Layout title={`${t.contact.title} | Homii`} description={t.contact.subtitle}>
   <Contacto currentLocale="en" />
+  <section class="pb-20 md:pb-28">
+    <div class="container-x max-w-5xl">
+      <div class="rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-6 sm:p-10 shadow-sm relative overflow-hidden">
+        {/* Background glow similar to other sections */}
+        <div class="pointer-events-none absolute -right-40 -top-40 h-[400px] w-[400px] rounded-full bg-primary/5 blur-[100px] dark:bg-primary/5"></div>
+        <div class="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-bluePrimary/5 blur-[100px] dark:bg-bluePrimary/5"></div>
+        
+        <div class="relative z-10">
+          <ContactForm client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

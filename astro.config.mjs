@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
+import node from '@astrojs/node';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -9,9 +10,17 @@ import icon from "astro-icon";
 
 import sitemap from "@astrojs/sitemap";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://homii.net",
+
+  output: "static",
+  adapter: netlify({
+    imageCDN: false,
+  }),
+
   integrations: [
     react(),
     icon(),
@@ -30,7 +39,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-    i18n: {
+  i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
     routing: {
