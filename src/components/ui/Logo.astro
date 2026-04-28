@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@/assets/homii-logo.png";
-import logo2 from "@/assets/homiiP.png";
 
 interface Props {
   href?: string;
@@ -10,14 +9,13 @@ interface Props {
 }
 
 const { href = "/", height = 32, className = "" } = Astro.props;
-const aspect = 1500 / 484;
+const aspect = 2690 / 1247;
 const width = Math.round(height * aspect);
 ---
 
-<!-- Light mode logo -->
 <a
   href={href}
-  class={`inline-flex items-center dark:hidden ${className}`}
+  class={`inline-flex items-center  ${className}`}
   aria-label="Homii"
 >
   <Image
@@ -25,24 +23,7 @@ const width = Math.round(height * aspect);
     alt="Homii"
     width={width}
     height={height}
-    class="h-auto w-auto object-contain"
-    style={`height:${height}px`}
+    style={`height: ${height}px; width: auto;`}
+    class="object-contain"
   />
-</a>
-
-<!-- Dark mode logo -->
-<a
-  href={href}
-  class={`hidden items-center gap-2 dark:inline-flex ${className}`}
-  aria-label="Homii"
->
-  <Image
-    src={logo2}
-    alt="Homii"
-    width={height}
-    height={height}
-    class="h-auto w-auto object-contain"
-    style={`height:${height}px`}
-  />
-  <span class="text-white font-semibold text-lg leading-none">Homii</span>
 </a>
