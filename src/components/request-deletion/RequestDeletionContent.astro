@@ -1,0 +1,250 @@
+---
+import DeletionForm from "./DeletionForm";
+
+interface Props {
+  currentLocale?: "es" | "en";
+}
+
+const { currentLocale = (Astro.currentLocale as "es" | "en") ?? "es" } =
+  Astro.props;
+
+const isEs = currentLocale === "es";
+
+const labels = {
+  eyebrow: isEs ? "Privacidad y datos" : "Privacy & data",
+  title: isEs
+    ? "Solicitud de eliminación de cuenta"
+    : "Account deletion request",
+  subtitle: isEs
+    ? "¿Deseas eliminar tu cuenta y todos los datos personales asociados? Ingresa el correo electrónico vinculado a tu cuenta y nuestro equipo procesará tu solicitud."
+    : "Want to delete your account and all associated personal data? Enter the email address linked to your account and our team will process your request.",
+  formTitle: isEs ? "Formulario de solicitud" : "Request form",
+  formSubtitle: isEs
+    ? "Ingresa el correo de tu cuenta para proceder."
+    : "Enter your account email to proceed.",
+  infoTitle: isEs ? "¿Qué sucede después?" : "What happens next?",
+  steps: isEs
+    ? [
+        {
+          step: "01",
+          title: "Recibimos tu solicitud",
+          desc: "Nuestro equipo recibirá un correo con tu información de solicitud.",
+        },
+        {
+          step: "02",
+          title: "Verificamos tu identidad",
+          desc: "Nos pondremos en contacto contigo para confirmar que eres el propietario de la cuenta.",
+        },
+        {
+          step: "03",
+          title: "Eliminamos tus datos",
+          desc: "Una vez verificado, eliminaremos tu cuenta y datos en un máximo de 30 días hábiles.",
+        },
+      ]
+    : [
+        {
+          step: "01",
+          title: "We receive your request",
+          desc: "Our team will receive an email with your request details.",
+        },
+        {
+          step: "02",
+          title: "We verify your identity",
+          desc: "We will contact you to confirm you are the account owner.",
+        },
+        {
+          step: "03",
+          title: "We delete your data",
+          desc: "Once verified, we will delete your account and data within 30 business days.",
+        },
+      ],
+};
+---
+
+<section class="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
+  {/* Background atmosphere */}
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-red-500/6 blur-[120px] dark:bg-red-500/4"
+    >
+    </div>
+    <div
+      class="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-red-800/8 blur-[100px] dark:bg-red-900/6"
+    >
+    </div>
+  </div>
+
+  <div class="container-x">
+    {/* ── Section header ── */}
+    <div class="rd-header mb-16 max-w-2xl">
+      <span class="eyebrow mb-4 block" style="color: #dc2626;">
+        {labels.eyebrow}
+      </span>
+      <h1 class="heading-xl mb-5">{labels.title}</h1>
+      <p class="text-lg leading-relaxed text-[var(--muted)]">
+        {labels.subtitle}
+      </p>
+    </div>
+
+    {/* ── Two-column layout ── */}
+    <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
+      {/* ── Left: Form card ── */}
+      <div
+        class="rd-card relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg)] p-8 shadow-soft"
+      >
+        {/* Subtle red glow in corner */}
+        <div
+          class="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-red-500/8 blur-3xl"
+        >
+        </div>
+
+        <div class="relative">
+          {/* Card header */}
+          <div class="mb-7 pb-6 border-b border-[var(--border)]">
+            {/* Icon badge */}
+            <div
+              class="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-red-50 text-red-600 ring-1 ring-red-200 dark:bg-red-950/30 dark:ring-red-900/40"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M3 6h18"></path>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                <line x1="10" x2="10" y1="11" y2="17"></line>
+                <line x1="14" x2="14" y1="11" y2="17"></line>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold tracking-tight text-[var(--fg)]">
+              {labels.formTitle}
+            </h2>
+            <p class="text-sm text-[var(--muted)] mt-1">{labels.formSubtitle}</p>
+          </div>
+
+          {/* React form */}
+          <DeletionForm client:load locale={currentLocale} />
+        </div>
+      </div>
+
+      {/* ── Right: Info steps ── */}
+      <div class="rd-info space-y-4">
+        <h2
+          class="text-sm font-semibold uppercase tracking-widest text-[var(--muted)] mb-6"
+        >
+          {labels.infoTitle}
+        </h2>
+
+        {
+          labels.steps.map((item) => (
+            <div class="rd-step group flex gap-5 rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-red-200 dark:hover:border-red-900/40">
+              {/* Step number */}
+              <div class="shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-red-600 text-xs font-bold tracking-wide ring-1 ring-red-200 dark:bg-red-950/30 dark:ring-red-900/40 transition-all duration-200 group-hover:bg-red-600 group-hover:text-white group-hover:ring-red-600">
+                {item.step}
+              </div>
+              {/* Content */}
+              <div>
+                <p class="text-sm font-semibold text-[var(--fg)] mb-1">
+                  {item.title}
+                </p>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+
+        {/* Privacy link */}
+        <div
+          class="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--bg-2)] p-5 flex items-center gap-4"
+        >
+          <div
+            class="shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+              ></path>
+            </svg>
+          </div>
+          <p class="text-sm text-[var(--muted)] leading-relaxed">
+            {
+              isEs
+                ? "Consulta nuestra "
+                : "Read our "
+            }
+            <a
+              href={isEs ? "/privacy" : "/en/privacy"}
+              class="font-semibold text-primary underline underline-offset-2 hover:text-shadePrimary transition-colors"
+            >
+              {isEs ? "política de privacidad" : "privacy policy"}
+            </a>
+            {
+              isEs
+                ? " para conocer más sobre cómo manejamos tus datos."
+                : " to learn more about how we handle your data."
+            }
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rd-header {
+    animation: fade-up 0.7s ease both;
+  }
+
+  .rd-card {
+    animation: fade-up 0.6s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .rd-info {
+    animation: fade-up 0.6s ease both;
+    animation-delay: 0.2s;
+  }
+
+  .rd-step {
+    animation: fade-up 0.5s ease both;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rd-header,
+    .rd-card,
+    .rd-info,
+    .rd-step {
+      animation: none;
+    }
+  }
+</style>
